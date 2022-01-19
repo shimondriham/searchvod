@@ -1,6 +1,7 @@
 import React,{useContext} from 'react';
 import { arcontext } from '../context/arcontext';
 import ItemVod from './itemVod';
+import InputVod from './inputVod';
 
 function ListVod(props){
     let {ar,setAr}  = useContext(arcontext)
@@ -8,6 +9,7 @@ function ListVod(props){
     
     return(
         <div className='container'>
+          <InputVod/>
         <div className="row">
           {ar.map(item => {
             return (

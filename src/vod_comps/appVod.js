@@ -1,19 +1,33 @@
 import React, { useState } from 'react';
 import InputVod from './inputVod';
+import SearchType from './searchType';
+import LayoutVod from './layoutVod';
+import SearchYears from './searchYears';
 import ListVod from './listVod';
+import {cearchcontext} from '../context/cearchcontext';
 import { arcontext } from '../context/arcontext';
+import { BrowserRouter as Router, Routes , Route, Link } from 'react-router-dom';
 
-// import { BrowserRouter as Router, Routes , Route, Link } from 'react-router-dom';
 
 function AppVod(props){
     let [ar, setAr] = useState([]);
-
+    let [searchHome, setSearchHome] = useState("bank");
 
     return(
         <arcontext.Provider value={{ ar: ar, setAr: setAr }}>
-            <InputVod/>
-            <ListVod/>
-        </arcontext.Provider>
+           <cearchcontext.Provider value={{  searchHome, setSearchHome }}>
+             <Router>
+               <Routes>
+                 <Route path="/" element={<LayoutVod/> }>
+                  <Route index element={<ListVod/>} />
+                  <Route path="/search" element={<InputVod/>} /> 
+                  <Route path="/years" element={<SearchYears/>} /> 
+                  <Route path="/type" element={<SearchType/>} /> 
+                </Route>
+              </Routes>
+            </Router>     
+           </cearchcontext.Provider>
+        // </arcontext.Provider> 
     )
 }
 
