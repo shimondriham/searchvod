@@ -3,14 +3,24 @@ import { arcontext } from '../context/arcontext';
 import {cearchcontext} from '../context/cearchcontext';
 import axios from 'axios';
 import ListVod from './listVod';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function SearchYears(props){
 
        let {ar,setAr}  = useContext(arcontext);
        let {searchHome,setSearchHome} = useContext(cearchcontext);
        let selectRef = useRef();
+       let params = useParams();
+       let nav = useNavigate();
 
- const doApiYears = async(_yearsQ,_searchQ) => {
+       useEffect(() => {
+        doApiYears(searchHome?searchHome:"bank") ;
+     }, [params.years])
+
+ const doApiYears = async(_searchQ) => {
+        let  _yearsQ;
+        let _yearsQ2 = params.years; 
+        _yearsQ2? _yearsQ=_yearsQ2:_yearsQ="";
          let url = `http://www.omdbapi.com/?s=${_searchQ}&y=${_yearsQ}&apikey=ab3bf0e7`
          try{
          let resp = await axios.get(url);
@@ -23,8 +33,10 @@ function SearchYears(props){
        }
 
    const selectYears = () => {
-        console.log(selectRef.current.value);
-        doApiYears(selectRef.current.value,(searchHome)?searchHome:"bank");
+        // console.log(selectRef.current.value);
+        nav("/years/"+selectRef.current.value);
+        // doApiYears(selectRef.current.value,(searchHome)?searchHome:"bank");
+
       }
 
     return(

@@ -9,7 +9,6 @@ function ListVod(props){
     
     return(
         <div className='container'>
-          <InputVod/>
         <div className="row">
           {ar.map(item => {
             return (

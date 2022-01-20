@@ -2,19 +2,26 @@ import React ,{useContext, useEffect ,useRef}from 'react';
 import { arcontext } from '../context/arcontext';
 import {cearchcontext} from '../context/cearchcontext';
 import axios from 'axios';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function InputVod(props){
     let {ar,setAr}  = useContext(arcontext)
-         let {searchHome,setSearchHome} = useContext(cearchcontext)
+    let {searchHome,setSearchHome} = useContext(cearchcontext)
     let inputRef = useRef();
     // let selectRef = useRef();
+    let params = useParams();
+    let nav = useNavigate()
 
     useEffect(() => {
-        doApi("bank") ;
-     }, [])
+        doApi() ;
+     }, [params.search])
      
-     const doApi = async(_searchQ) => {
-         let url = `http://www.omdbapi.com/?s=${_searchQ}&apikey=ab3bf0e7`
+     const doApi = async() => {
+       let searchQ;
+      let searchQ2 = params.search; 
+      searchQ2? searchQ=searchQ2:searchQ="bank";
+      console.log(searchQ)
+         let url = `http://www.omdbapi.com/?s=${searchQ}&apikey=ab3bf0e7`
          try{
          let resp = await axios.get(url);
          console.log(resp.data.Search);
@@ -38,9 +45,11 @@ function InputVod(props){
     //    }
 
       const onBtnClick = () => {
-        doApi((inputRef.current.value)?inputRef.current.value:"bank");
+        // doApi((inputRef.current.value)?inputRef.current.value:"bank");
         setSearchHome(inputRef.current.value);
+        nav("/search/"+inputRef.current.value);
       }
+
       // const selectYears = () => {
       //   console.log(selectRef.current.value);
       //   doApiYears(selectRef.current.value,(inputRef.current.value)?inputRef.current.value:"bank");

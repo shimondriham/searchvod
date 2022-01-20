@@ -19,10 +19,10 @@ function AppVod(props){
              <Router>
                <Routes>
                  <Route path="/" element={<LayoutVod/> }>
-                  <Route index element={<ListVod/>} />
-                  <Route path="/search" element={<InputVod/>} /> 
-                  <Route path="/years" element={<SearchYears/>} /> 
-                  <Route path="/type" element={<SearchType/>} /> 
+                  <Route index element={ <InputVod/>} />
+                  <Route path="/search/:search" element={<InputVod/>} /> 
+                  <Route path="/years/:years" element={<SearchYears/>} /> 
+                  <Route path="/type/:type" element={<SearchType/>} /> 
                 </Route>
               </Routes>
             </Router>     
