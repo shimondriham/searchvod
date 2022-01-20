@@ -9,7 +9,7 @@ function LayoutVod(props){
       <nav className='bg-info p-3  '>
         <Link to="/"> home search </Link>|
         <Link to="/years/:years"> search by years</Link> |
-        <Link to="/type"> search by type </Link>|
+        <Link to="/type/:type"> search by type </Link>|
 
       </nav>
       <main>
