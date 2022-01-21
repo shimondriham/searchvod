@@ -20,7 +20,14 @@ function InputVod(props){
      const doApi = async() => {
        let searchQ;
       let searchQ2 = params.search; 
-      searchQ2? searchQ=searchQ2:searchQ="bank";
+      if(searchQ2){
+        searchQ=searchQ2;
+      } else if(searchHome){
+        searchQ=searchHome;
+      }else{
+        searchQ= "bank";
+      }
+      
       console.log(searchQ)
          let url = `http://www.omdbapi.com/?s=${searchQ}&apikey=ab3bf0e7`
          try{

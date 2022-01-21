@@ -14,8 +14,10 @@ function LayoutVod(props){
       </nav>
       <main>
         <Outlet />
-        {/* <ListVod/> */}
       </main>
+      <footer>
+        footer
+      </footer>
     </div>
     )
 }

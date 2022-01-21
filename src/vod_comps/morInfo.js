@@ -32,9 +32,6 @@ function MorInfo(props){
            <h2>name: {arInfo.Title}</h2>
           <h3>info: {arInfo.Plot}</h3>
      </div>
-       
-  
-
     )
 }
 
