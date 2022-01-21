@@ -42,6 +42,7 @@ function SearchYears(props){
     return(
 
         <div className="container">
+          <div className="row p-2">
          <div className="col-md-6 ">
             <select onChange={selectYears} ref={selectRef} className='form-control select2'>        
                 <option value="">chouse years</option>
@@ -80,6 +81,7 @@ function SearchYears(props){
                 <option value="1990">1990</option>
                 <option value="1989">1989</option>
             </select>
+          </div>
           </div>
           <ListVod/>
         </div> 

@@ -10,11 +10,11 @@ function LayoutVod(props){
         <Link to="/"> home search </Link>|
         <Link to="/years/:years"> search by years</Link> |
         <Link to="/type/:type"> search by type </Link>|
-
+        
       </nav>
       <main>
         <Outlet />
-        <ListVod/>
+        {/* <ListVod/> */}
       </main>
     </div>
     )

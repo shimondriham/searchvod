@@ -30,6 +30,7 @@ const doApiType = async(_tipeQ,_searchQ) => {
     return(
 
         <div className="container">
+          <div className="row p-2">
          <div className="col-md-6 ">
             <select onChange={selectType} ref={selectRef} className='form-control select2'>        
                 <option value="">chouse type</option>
@@ -38,7 +39,9 @@ const doApiType = async(_tipeQ,_searchQ) => {
                 <option value="episode">episode</option>
             </select>
           </div>
+      </div> 
           <ListVod/>
+             
         </div> 
     )
 }
