@@ -15,7 +15,7 @@ function ItemVod(props){
 
 
     return(
-        <div className=' col-md-3 p-3'>
+        <div className=' col-md-4 col-lg-3  p-3'>
         <div className="box card border shadow p-3" >
             <img src={item.Poster=="N/A"?"https://m.media-amazon.com/images/M/MV5BMTMyNzEyNjAzM15BMl5BanBnXkFtZTcwODY0ODQ0NQ@@._V1_SX300.jpg":item.Poster} className='card-img-top' />
              <h3>{item.Title}</h3>
