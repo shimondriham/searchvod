@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import InputVod from './inputVod';
-import SearchType from './searchType';
+// import SearchType from './searchType';
 import LayoutVod from './layoutVod';
 import SearchYears from './searchYears';
 import ListVod from './listVod';
@@ -28,7 +28,7 @@ function AppVod(props){
                  
                   <Route path="/search/:search" element={<InputVod/>} /> 
                   <Route path="/years/:years" element={<SearchYears/>} /> 
-                  <Route path="/type/:type" element={<SearchType/>} />  
+                  {/* <Route path="/type/:type" element={<SearchType/>} />   */}
                   <Route path="/info/:id" element={<MorInfo/>} />  
                  
                 </Route>

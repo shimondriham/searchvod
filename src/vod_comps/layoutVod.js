@@ -7,9 +7,10 @@ function LayoutVod(props){
        <div className='container'>
        
       <nav className='bg-info p-3  '>
-        <Link to="/"> home search </Link>|
-        <Link to="/years/:years"> search by years</Link> |
-        <Link to="/type/:type"> search by type </Link>|
+        <Link to="/">search by name </Link>
+        <span className='mx-3'>|</span> 
+        <Link to="/years/:years"> search by years</Link> 
+        {/* <Link to="/type/:type"> search by type </Link>| */}
         
       </nav>
       <main>
