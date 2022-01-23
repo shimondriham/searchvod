@@ -15,14 +15,14 @@ function ItemVod(props){
 
 
     return(
-        <div className='p-3 col-md-4 '>
-        <div className="border box shadow">
-            <img src={item.Poster} className='float-end'/>
-             <h2>{item.Title}</h2>
+        <div className=' col-md-3 p-3'>
+        <div className="box card border shadow p-3" >
+            <img src={item.Poster=="N/A"?"https://m.media-amazon.com/images/M/MV5BMTMyNzEyNjAzM15BMl5BanBnXkFtZTcwODY0ODQ0NQ@@._V1_SX300.jpg":item.Poster} className='card-img-top' />
+             <h3>{item.Title}</h3>
             {/* |<Link  to="/info/:info">More info</Link> */}
             <button onClick={onBtnClick}  target="_blank" className='btn btn-info'>mor info</button>
           </div>
-        </div>
+         </div>
     
     )
 }

@@ -9,7 +9,7 @@ function ListVod(props){
     
     return(
         <div className='container'>
-        <div className="row">
+        <div className="row p-3">
           {ar.map(item => {
             return (
              <ItemVod key={item.imdbID} item={item}/>

@@ -1,6 +1,6 @@
 
 import React,{useEffect,useState} from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
 function MorInfo(props){
@@ -26,12 +26,25 @@ function MorInfo(props){
             alert("There problem, come back later")
           }
         }
+      const onBtnClick= () => { 
+      
+       }
 
     return(
-     <div className='container'>
-           <h2>name: {arInfo.Title}</h2>
-          <h3>info: {arInfo.Plot}</h3>
-     </div>
+     <div className='container'>        
+        <div className=' p-3'>
+         {/* <div className=" border shadow p-3" >    */}
+          <img src={arInfo.Poster} className='float-end'/>
+           <h2>name: {arInfo.Title}</h2>           
+           <h4>info: {arInfo.Plot}</h4>
+           <h3>Actors: {arInfo.Actors}</h3>
+           {/* |<Link  to="/info/:info">More info</Link> */}
+           {/* <button onClick={onBtnClick}  target="_blank" className='btn btn-info'>back</button> */}
+           <button className='btn btn-info'><Link to="/"> back </Link></button>
+          
+         </div>
+        {/* </div>  */}
+      </div>
     )
 }
 

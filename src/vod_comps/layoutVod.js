@@ -16,7 +16,7 @@ function LayoutVod(props){
         <Outlet />
       </main>
       <footer>
-        footer
+      <p class=" text-center">© Created by Shimon Dariham </p>
       </footer>
     </div>
     )

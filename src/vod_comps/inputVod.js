@@ -1,6 +1,7 @@
 import React ,{useContext, useEffect ,useRef}from 'react';
 import { arcontext } from '../context/arcontext';
 import {cearchcontext} from '../context/cearchcontext';
+import { yearcontext } from '../context/yearcontext';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import ListVod from './listVod';
@@ -8,6 +9,7 @@ import ListVod from './listVod';
 function InputVod(props){
     let {ar,setAr}  = useContext(arcontext)
     let {searchHome,setSearchHome} = useContext(cearchcontext)
+    let {searchByYears,setSearchByYears} = useContext(yearcontext)
     let inputRef = useRef();
     // let selectRef = useRef();
     let params = useParams();
@@ -29,7 +31,9 @@ function InputVod(props){
       }
       
       console.log(searchQ)
-         let url = `http://www.omdbapi.com/?s=${searchQ}&apikey=ab3bf0e7`
+      let _yearsQ ;  
+      if(searchByYears)_yearsQ=searchByYears;
+         let url = `http://www.omdbapi.com/?s=${searchQ}&y=${_yearsQ}&apikey=ab3bf0e7`
          try{
          let resp = await axios.get(url);
          console.log(resp.data.Search);

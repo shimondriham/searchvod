@@ -5,6 +5,7 @@ import LayoutVod from './layoutVod';
 import SearchYears from './searchYears';
 import ListVod from './listVod';
 import {cearchcontext} from '../context/cearchcontext';
+import { yearcontext } from '../context/yearcontext';
 import { arcontext } from '../context/arcontext';
 import { BrowserRouter as Router, Routes , Route, Link } from 'react-router-dom';
 import MorInfo from './morInfo';
@@ -13,10 +14,12 @@ import MorInfo from './morInfo';
 function AppVod(props){
     let [ar, setAr] = useState([]);
     let [searchHome, setSearchHome] = useState();
+    let [searchByYears, setSearchByYears] = useState();
 
     return(
         <arcontext.Provider value={{ ar: ar, setAr: setAr }}>
            <cearchcontext.Provider value={{  searchHome, setSearchHome }}>
+            <yearcontext.Provider value={{  searchByYears, setSearchByYears }}>
              <Router>
                <Routes>
                  <Route path="/" element={<LayoutVod/> }>
@@ -31,8 +34,9 @@ function AppVod(props){
                 </Route>
               </Routes>
             </Router>     
-           </cearchcontext.Provider>
-        // </arcontext.Provider> 
+          </yearcontext.Provider>
+         </cearchcontext.Provider>
+        </arcontext.Provider> 
     )
 }
 
