@@ -5,13 +5,14 @@ import { yearcontext } from '../context/yearcontext';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import ListVod from './listVod';
+import { toast } from 'react-toastify'; 
+ 
 
 function InputVod(props){
     let {ar,setAr}  = useContext(arcontext)
     let {searchHome,setSearchHome} = useContext(cearchcontext)
     let {searchByYears,setSearchByYears} = useContext(yearcontext)
     let inputRef = useRef();
-    // let selectRef = useRef();
     let params = useParams();
     let nav = useNavigate()
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
@@ -37,18 +38,22 @@ function InputVod(props){
          try{
          let resp = await axios.get(url);
          console.log(resp.data.Search);
-          setAr(resp.data.Search);        
+          setAr(resp.data.Search);       
          }
          catch(err){
-           alert("There problem, come back later")
+              // toast.info("There problem, come back later");
+           alert("The movie was not found Please insert a correct whole word");
            nav("/")
            window.location.reload();
+         
           }
+       }
+       const sss = async() => {
+         
        }
 
 
       const onBtnClick = () => {
-        // doApi((inputRef.current.value)?inputRef.current.value:"bank");
         setSearchHome(inputRef.current.value);
         nav("/search/"+inputRef.current.value);
       }

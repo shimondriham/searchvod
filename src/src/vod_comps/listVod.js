@@ -2,7 +2,6 @@ import React,{useContext} from 'react';
 import { arcontext } from '../context/arcontext';
 import ItemVod from './itemVod';
 
-
 function ListVod(props){
     let {ar,setAr}  = useContext(arcontext)
     

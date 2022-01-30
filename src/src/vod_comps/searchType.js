@@ -41,7 +41,6 @@ const doApiType = async() => {
        }
 
    const selectType = () => {
-        // console.log(selectRef.current.value);
         nav("/type/"+selectRef.current.value);
       }
 

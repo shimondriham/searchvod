@@ -1,24 +1,26 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import ListVod from './listVod';
 
 function LayoutVod(props) {
   return (
     <div >
       <div className='strip'>
-        <nav className='bg-dark p-3 container '>
+        <div className='box container'>
+            <nav className=' p-3'>
           <Link to="/">search by name </Link>
-          <span className='mx-3'>|</span>
+          <span className='mx-2'>|</span>
           <Link to="/years/:years"> search by years</Link>
-          <span className='mx-3'>|</span>
-          {/* <Link to="/type/:type"> search by type </Link> */}
-        </nav>
+          </nav>
+         <div> </div>
+        </div>
+        <p>IMBD Movie Search</p>
+     
       </div>
       <main className='container'>
         <Outlet />
       </main>
       <footer className='container'>
-        <p className=" text-center">© Created by Shimon Dariham 2022</p>
+        <h4 className=" text-center">© Created by Shimon Dariham 2022</h4>
       </footer>
     </div>
   )

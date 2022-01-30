@@ -9,7 +9,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 function SearchYears(props){
 
        let {ar,setAr}  = useContext(arcontext);
-       let {searchHome,setSearchHome} = useContext(cearchcontext);
+       let {searchHome} = useContext(cearchcontext);
        let {searchByYears,setSearchByYears} = useContext(yearcontext)
        let selectRef = useRef();
        let params = useParams();
@@ -37,8 +37,6 @@ function SearchYears(props){
          }
          catch(err){
            alert("There problem, come back later");
-          //  nav("/years/2000")
-          //  window.location.reload();
          }
        }
 
